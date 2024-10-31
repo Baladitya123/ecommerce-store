@@ -1,0 +1,6 @@
+.accordion-header .accordion-button:focus ,.accordion-button:active , .accordian-button:disabled{
+    box-shadow: none;
+    outline: none;
+    background-color: #A594F9;
+    color: white;
+}

@@ -1,0 +1,14 @@
+.nav-item:hover{
+    opacity: 0.6;
+    
+}
+.nav-item{
+    margin-right: 15px;
+}
+
+.navbar{
+    background-color: #A594F9;
+}
+.input-group .form-control:focus .form-control:active{
+    outline: none;
+}

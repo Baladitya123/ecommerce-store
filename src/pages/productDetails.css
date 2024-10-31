@@ -1,0 +1,24 @@
+.color-option {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.color-option input {
+    display: none; /* Hide the default radio button */
+}
+
+.color-box {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ccc; /* Default border */
+    border-radius: 15px; /* Optional: for rounded corners */
+    transition: box-shadow 0.3s, border-color 0.3s;
+    margin-right: 10px;
+}
+
+.color-option input:checked + .color-box {
+    border-color: #333; /* Darker border when selected */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Shadow when selected */
+}
