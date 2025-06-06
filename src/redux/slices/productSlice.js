@@ -80,6 +80,9 @@ const productSlice = createSlice({
         clearCredentials:(state,action)=>{
             state.email='';
             state.name='';
+        },
+        getTotalAmount :(state,action)=>{
+
         }
     },
 })
@@ -91,6 +94,7 @@ export const selectAllCartItems = (state)=> state.products.cart;
 export const getNumberOfItemsInCart = (state)=>state.products.totalquantityofcart;
 export const getName = (state)=>state.products.name;
 export const getEmail = (state)=>state.products.email;
+export const getTotalAmount =(state)=>state.products.cart.reduce((total,pre)=>total+((pre.quantity)*pre.price),0)
 
 
 

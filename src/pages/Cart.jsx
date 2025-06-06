@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllCartItems,deleteFromCart, addToCart, removeItemCompletely } from '../redux/slices/productSlice';
-
+import { selectAllCartItems,deleteFromCart, addToCart, removeItemCompletely, getTotalAmount } from '../redux/slices/productSlice';
+import { Link } from 'react-router-dom';
 
 const Cart=()=> {
   const cart = useSelector(selectAllCartItems);
+  const totalamountincart = useSelector(getTotalAmount);
   const [loading,setLoading]=useState(true)
   const dispatch = useDispatch()
   const handleRemoveItemCart=(item)=>{
@@ -41,8 +42,9 @@ const Cart=()=> {
     )
   }
   return ( 
-    <div className='container mt-4'>
-      <table className="table table-striped">
+    <div className='container mt-4 '>
+      <div className='payment border-top mt-3 mb-3 border-bottom table-responsive'>
+      <table className="table table-striped table-borderless">
         <thead>
           <tr>
             <th scope="col d-none d-lg-block">s.no</th>
@@ -72,6 +74,93 @@ const Cart=()=> {
         </tbody>
         
       </table>
+      </div>
+      
+      {/* summary  */}
+     
+      <div className="container mb-5">
+        <div className="row">
+          <div className="col-md-6 align-items-center justify-content-center d-flex col-12">
+            <a className="navbar-brand brand" href="#">
+              <span className="brand-custom">Ecommerce</span>
+              <span className="text-warning fw-bold">STORE</span>
+            </a>
+          </div>
+          <div className="col-md-6 col-12">
+            <div className="display-6 text-center fw-semibold mt-3">
+              order summary
+            </div>
+            <hr className="mt-3" />
+            <div className="row text-center header w-100">
+              <div className="col-7 text-start fw-bold">ITEMS {cart.length}</div>
+              <div className="col-5 fw-bold">${totalamountincart}</div>
+            </div>
+            <label htmlFor="shipping" className="h5 mt-3">
+              SHIPPING
+            </label>
+            <div className="dropdown mt-3 " id="shipping">
+              <button
+                className="btn btn-light dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                select your shipping type
+              </button>
+              <ul className="dropdown-menu dropdown-menu-light">
+                <li>
+                  <a className="dropdown-item active" href="#">
+                    Action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Another action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Something else here
+                  </a>
+                </li>
+                <li>
+                  <hr className="dropdown-divider" />
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Separated link
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <label htmlFor="promo" className="h5 mt-3">
+              PROMO CODE
+            </label>
+            <input
+              type="text"
+              placeholder="type your code"
+              name="promo"
+              className="form-control"
+            />
+            <button className="btn btn-warning mt-3">APPLY</button>
+            <div className="row mt-5">
+              <div className="col-6">
+                <h5>Total</h5>
+              </div>
+              <di className="col-6 h5 text-center">$6386</di>
+            </div>
+            <div className="d-flex justify-content-center mt-5">
+              <Link to='/checkout' className='w-100'><button className="btn btn-primary text-center w-50">
+                  CHECK OUT
+                </button>
+              </Link>
+                
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }

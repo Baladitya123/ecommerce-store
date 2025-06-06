@@ -39,26 +39,34 @@ const Navbar = () => {
                   <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
                   <button type="button" className="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                </div>
-               <div className="offcanvas-body  d-flex align-items-center ms-auto">
-                  <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                     <li className="nav-item">
-                        <Link to='/home' className='nav-link'><i class="bi bi-house me-1"></i>
+               <div className="offcanvas-body  d-flex align-items-lg-center ms-lg-auto ms-3 ps-0">
+                  <ul className="navbar-nav justify-content-lg-end flex-grow-1 pe-3 ">
+                     <li className="nav-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                        <Link to='/home' className='nav-link' ><i class="bi bi-house me-1"></i>
                         Home</Link>
                      </li>
-                     <li className="nav-item">
+                     <li className="nav-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                         <Link to='/cart' className='nav-link position-relative'><i class="bi bi-cart2 me-1"></i>
                          Cart
-                        <span className="position-absolute top-1 start-100 translate-middle badge rounded-pill bg-warning">
+                        <span className="d-none d-lg-block position-absolute top-0 bottom-1 mt-2 start-100 translate-middle badge rounded-pill bg-warning">
                            {cartitems}
                            <span className="visually-hidden">unread messages</span>
                         </span>
                         </Link>
                      </li>
-                     <li className="nav-item">
+                     <li className="nav-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                         <Link to='/allproducts' className='nav-link'><i class="bi bi-bag me-1"></i>
                         Products</Link>
                      </li>
-                     <li className="nav-item">
+                     <li className="nav-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                        <Link to='/contact-us' className='nav-link'>
+                        <i class="bi bi-person-lines-fill me-1"></i> Contact us</Link>
+                     </li>
+                     <li className="nav-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+                        <Link to='/about-us' className='nav-link'>
+                        <i class="bi bi-file-person me-1"></i> About us</Link>
+                     </li>
+                     <li className="nav-item" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                         <Link to='/profile' className='nav-link'>
                         <i className="bi bi-person-circle me-1"></i> Profile</Link>
                      </li>
